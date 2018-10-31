@@ -19,3 +19,8 @@ Auth::routes();
 route::resource('repair','RepairController')->middleware('auth');
 
 route::resource('customer','CustomerController')->middleware('auth');
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
