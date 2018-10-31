@@ -54,15 +54,10 @@ class RepairController extends Controller
       $customer->lname = $request->lname;
       $customer->address = $request->address;
       $customer->phone = $request->phone;
-      $cid = 0;
-      if($customer->exists)
-      {
-        $cid = $customer->id;
-      } 
-      else 
-      {
+      $cust = Customer::firstOrNew($customer->toArray());
+      $cid = $cust->id;
+      if($cid === null){
         $customer->save();
-        $cid = $customer->id;
       }
       $repair = new Repair();
       $repair->brand = $request->brand;
