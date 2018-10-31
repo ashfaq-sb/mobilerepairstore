@@ -66,6 +66,7 @@ class RepairController extends Controller
       $repair->type = $request->type;
       $repair->discription = $request->discription;
       $repair->parts = $request->parts;
+      $repair->status = false;
       $repair->price = $request->price;
       $repair->customer_id = $cid;
       $repair->save();
@@ -107,25 +108,11 @@ class RepairController extends Controller
      * @param  \App\Model\Repair  $repairs
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-      $request->validate([
-        'brand' => 'required',
-        'model' => 'required',
-        'imei' => 'required',
-        'type' => 'required',
-        'discription' => 'required',
-        'parts' => 'required',
-        'status' => 'required',
-        'price' => 'required',
-        'customer_id' => 'required'
-      ]);
 
       $repair = Repair::find($id);
-      $repair->fname = $request->get('fname');
-      $repair->lname = $request->get('lname');
-      $repair->lname = $request->get('address');
-      $repair->lname = $request->get('phone');
+      $repair->status = true;
       $repair->save();
       return redirect()->route('repair.index')
                       ->with('success', 'Repair updated successfully');

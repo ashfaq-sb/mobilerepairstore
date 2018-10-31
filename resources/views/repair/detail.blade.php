@@ -29,8 +29,39 @@
               Done
             </span>
             @else
-            <span class="btn btn-danger" role="button">
-              Pending
+            <span>
+              <button class="btn-danger" data-toggle="modal" data-target="#myModal">Pending</button>
+              <div id="myModal" class="modal fade" role="dialog">
+                  <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="Done" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Modal Header</h4>
+                      </div>
+                      <form action="{{route('repair.update',$repair->id)}}" method="post">
+                        @csrf
+                        @method('PUT')
+                          <div class="modal-body">
+                            <p>{{ $repair->brand }} {{ $repair->model }}</p>
+                            <p></p>
+                            <p><strong>Date:</strong> {{ $repair->created_at }}</p>
+                            <p><strong>Type:</strong> {{ $repair->type }}</p>
+                            <p><strong>Discription:</strong> {{ $repair->discription }}</p>
+                            <p><strong>Price:</strong> {{ $repair->price }}</p>
+                          </div>
+                          <div class="modal-footer">
+
+                            <button type="submit" class="btn btn-success">Repaired</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+                          </div>
+                      </form>
+                    </div>
+
+                  </div>
+                </div>
             </span>
             @endif
           </div>
