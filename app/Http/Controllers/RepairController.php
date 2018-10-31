@@ -68,7 +68,7 @@ class RepairController extends Controller
       $repair->parts = $request->parts;
       $repair->status = false;
       $repair->price = $request->price;
-      $repair->customer_id = $cid;
+      $repair->customer_id = $cust->id;
       $repair->save();
 
       // Repair::create($request->all());

@@ -46,6 +46,7 @@
         </tr>
       @endforeach
     </table>
+    
 
 {!! $customers->links() !!}
   </div>
