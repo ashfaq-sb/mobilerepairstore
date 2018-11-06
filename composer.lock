@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b19680aee423ed1d10ceb6a2e6802656",
+    "content-hash": "2a88c4247cd8fb951710aa529f591888",
     "packages": [
         {
             "name": "arrilot/laravel-widgets",
@@ -126,16 +126,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "1.7.2",
+            "version": "1.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "576aab9b5abb2ed11a1c52353a759363216a4ad2"
+                "reference": "e965b9aaa8854c3067f1ed2ae45f436572d73eb7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/576aab9b5abb2ed11a1c52353a759363216a4ad2",
-                "reference": "576aab9b5abb2ed11a1c52353a759363216a4ad2",
+                "url": "https://api.github.com/repos/composer/composer/zipball/e965b9aaa8854c3067f1ed2ae45f436572d73eb7",
+                "reference": "e965b9aaa8854c3067f1ed2ae45f436572d73eb7",
                 "shasum": ""
             },
             "require": {
@@ -202,7 +202,7 @@
                 "dependency",
                 "package"
             ],
-            "time": "2018-08-16T14:57:12+00:00"
+            "time": "2018-11-01T09:05:06+00:00"
         },
         {
             "name": "composer/semver",
@@ -268,16 +268,16 @@
         },
         {
             "name": "composer/spdx-licenses",
-            "version": "1.4.0",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/spdx-licenses.git",
-                "reference": "cb17687e9f936acd7e7245ad3890f953770dec1b"
+                "reference": "7a9556b22bd9d4df7cad89876b00af58ef20d3a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/spdx-licenses/zipball/cb17687e9f936acd7e7245ad3890f953770dec1b",
-                "reference": "cb17687e9f936acd7e7245ad3890f953770dec1b",
+                "url": "https://api.github.com/repos/composer/spdx-licenses/zipball/7a9556b22bd9d4df7cad89876b00af58ef20d3a2",
+                "reference": "7a9556b22bd9d4df7cad89876b00af58ef20d3a2",
                 "shasum": ""
             },
             "require": {
@@ -325,7 +325,7 @@
                 "spdx",
                 "validator"
             ],
-            "time": "2018-04-30T10:33:04+00:00"
+            "time": "2018-11-01T09:45:54+00:00"
         },
         {
             "name": "composer/xdebug-handler",
