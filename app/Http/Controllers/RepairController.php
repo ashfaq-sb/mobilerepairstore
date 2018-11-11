@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Model\Repair;
 use Illuminate\Http\Request;
 use App\Model\Customer;
+use PDF;
 class RepairController extends Controller
 {
     /**
@@ -120,7 +121,12 @@ class RepairController extends Controller
     {
 
       $repair = Repair::find($id);
-      $repair->status = true;
+      if($repair->status == true){
+         $repair->status = false;
+      }else{
+         $repair->status = true;
+      }
+     
       $repair->save();
       return redirect()->route('repair.index')
                       ->with('success', 'Repair updated successfully');
@@ -138,5 +144,16 @@ class RepairController extends Controller
       $repair->delete();
       return redirect()->route('repair.index')
                       ->with('success', 'Repair deleted successfully');
+    }
+
+    public function printReceipt($id)
+    {
+       $repair = Repair::find($id);
+       $customer = Customer::find($repair->customer_id);
+       $pdf = PDF::loadView('repair.receipt', compact('repair','customer'));
+      return $pdf->download('invoice.pdf');
+
+      
+
     }
 }

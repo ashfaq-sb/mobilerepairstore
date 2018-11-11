@@ -57,7 +57,7 @@
         </div>
 
 
-
+<br>
         <div class="row">
             <div class="col-md-12">
               <a href="{{route('repair.index')}}" class="btn btn-sm btn-success">Back</a>
