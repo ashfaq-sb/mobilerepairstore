@@ -50,7 +50,5 @@ By Aquaring our service you are consenting to this note.
 
             </p>
      </div> 
-     <br>   
-     <a class="btn btn-sm btn-success" href="{{route('repair.show',$repair->id)}}">Back</a>
   </body>
 </html>
