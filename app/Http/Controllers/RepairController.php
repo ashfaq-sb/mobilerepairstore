@@ -15,9 +15,9 @@ class RepairController extends Controller
      */
     public function index()
     {
-      $repairs = Repair::latest()->paginate(25);
+      $repairs = Repair::latest()->paginate(50);
       return view('repair.index', compact('repairs'))
-                ->with('i', (request()->input('page',1) -1)*25);
+                ->with('i', (request()->input('page',1) -1)*50);
     }
 
     /**
@@ -172,11 +172,13 @@ class RepairController extends Controller
       $f = $request->from;
       $t = $request->to;
       $price=0;
+      $total=0;
       $s = 1; // $repair->status : 0/1
       if( $request->has('pending') ){
         $s= 0;
   
       }
+      
        if ($request->isMethod('post')){
 
 
@@ -184,35 +186,38 @@ class RepairController extends Controller
         if($f != "" && $t != "" ){
           if($f === $t){
 
-          $repairs = Repair::where('status' , $s)->whereDate('created_at' , $f)->paginate(25);
+          $repairs = Repair::where('status' , $s)->whereDate('created_at' , $f)->paginate(50);
+          $total = $repairs->count();
           foreach ($repairs as $repair) {
               $price += $repair->price; 
           }
           
-          return view('repair.reports', compact('repairs','price'));
+          return view('repair.reports', compact('repairs','price','total'));
         }
            $repairs = Repair::where('status' , $s)
           ->whereDate('created_at', '>=', $f)
           ->whereDate('created_at', '<=', $t)
           ->latest()
-          ->paginate(25);
+          ->paginate(50);
           foreach ($repairs as $repair) {
               $price += $repair->price; 
           }
-          return view('repair.reports', compact('repairs','price'));
+          $total = $repairs->count();
+          return view('repair.reports', compact('repairs','price','total'));
   
       }else{
 
-               $repairs = Repair::where('status' , $s)->latest()->paginate(25);
-              return view('repair.reports', compact('repairs','price'));
+               $repairs = Repair::where('status' , $s)->latest()->paginate(50);
+               $total = $repairs->count();
+              return view('repair.reports', compact('repairs','price','total'));
         
       
       }
      
       }else{
-        $repairs = Repair::where('status' , $s)->latest()->paginate(25);
-      
-      return view('repair.reports', compact('repairs','price'));
+        $repairs = Repair::where('status' , $s)->latest()->paginate(50);
+      $total = $repairs->count();
+      return view('repair.reports', compact('repairs','price','total'));
       }
     }
 }
