@@ -167,5 +167,19 @@ class RepairController extends Controller
 
     }
 
-    
+    public function reports(Request $request)
+    {
+       if ($request->isMethod('post')) {
+      $from = $request->from;
+      $to = $request->to;
+      $repairs = Repair::where('status' , 1)->whereDate('created_at', date(2018))->latest()->paginate(25);
+
+      // $repairs = Repair::where('status',1)->where('price' , $request->price)->latest()->paginate(25);
+      return view('repair.reports', compact('repairs'));
+      }else{
+        $repairs = Repair::where('status' , 1)->latest()->paginate(25);
+      
+      return view('repair.reports', compact('repairs'));
+      }
+    }
 }

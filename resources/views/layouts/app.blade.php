@@ -18,7 +18,12 @@
     <!-- Styles -->
       <!-- ... -->
 
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+
+ 
+
+  
+
+</head>
  
       <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -54,6 +59,7 @@
                         @else
                           <li class="nav-item"><a class="nav-link" href="{{ route('repair.index') }}">Repairs</a></li>
                           <li class="nav-item"><a class="nav-link" href="{{ route('customer.index') }}">Customers</a></li>
+                          <li class="nav-item"><a class="nav-link" href="{{ route('repair.reports') }}">Reports</a></li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -83,15 +89,21 @@
     </div> 
 
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
   <script type="text/javascript">
             $( "#datepicker" ).datepicker({
-              format: "mm/dd/yy",
-              weekStart: 0,
-              calendarWeeks: true,
+              format: "yyyy/mm/dd",
+             
               autoclose: true,
               todayHighlight: true,
-              rtl: true,
+              orientation: "auto"
+              });
+            $( "#datepicker2" ).datepicker({
+              format: "yyyy/mm/dd",
+             
+              autoclose: true,
+              todayHighlight: true,
               orientation: "auto"
               });
         </script>
