@@ -145,13 +145,9 @@
 
       <div class="col-md-12">
         <a href="{{route('repair.index')}}" class="btn btn-sm btn-success">Back</a>
-        @if($repair->status == 1)
         <a href="{{action('RepairController@printReceipt', $repair->id)}}" class="btn btn-sm btn-info">Download Receipt
         </a>
-        @else
-        <a href="{{action('RepairController@showReceipt', $repair->id)}}" class="btn btn-sm btn-info" target="_blank">View Receipt
-        </a>
-        @endif
+      
       </div>
     </div>
   </div>
