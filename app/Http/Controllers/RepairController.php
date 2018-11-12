@@ -169,17 +169,50 @@ class RepairController extends Controller
 
     public function reports(Request $request)
     {
-       if ($request->isMethod('post')) {
-      $from = $request->from;
-      $to = $request->to;
-      $repairs = Repair::where('status' , 1)->whereDate('created_at', date(2018))->latest()->paginate(25);
+      $f = $request->from;
+      $t = $request->to;
+      $price=0;
+      $s = 1; // $repair->status : 0/1
+      if( $request->has('pending') ){
+        $s= 0;
+  
+      }
+       if ($request->isMethod('post')){
 
-      // $repairs = Repair::where('status',1)->where('price' , $request->price)->latest()->paginate(25);
-      return view('repair.reports', compact('repairs'));
-      }else{
-        $repairs = Repair::where('status' , 1)->latest()->paginate(25);
+
       
-      return view('repair.reports', compact('repairs'));
+        if($f != "" && $t != "" ){
+          if($f === $t){
+
+          $repairs = Repair::where('status' , $s)->whereDate('created_at' , $f)->paginate(25);
+          foreach ($repairs as $repair) {
+              $price += $repair->price; 
+          }
+          
+          return view('repair.reports', compact('repairs','price'));
+        }
+           $repairs = Repair::where('status' , $s)
+          ->whereDate('created_at', '>=', $f)
+          ->whereDate('created_at', '<=', $t)
+          ->latest()
+          ->paginate(25);
+          foreach ($repairs as $repair) {
+              $price += $repair->price; 
+          }
+          return view('repair.reports', compact('repairs','price'));
+  
+      }else{
+
+               $repairs = Repair::where('status' , $s)->latest()->paginate(25);
+              return view('repair.reports', compact('repairs','price'));
+        
+      
+      }
+     
+      }else{
+        $repairs = Repair::where('status' , $s)->latest()->paginate(25);
+      
+      return view('repair.reports', compact('repairs','price'));
       }
     }
 }
