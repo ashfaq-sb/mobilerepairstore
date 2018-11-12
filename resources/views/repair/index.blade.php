@@ -64,11 +64,10 @@
 
           <td>
               <a class="btn btn-sm btn-success" href="{{route('repair.show',$repair->id)}}">Show</a>
-              <button type="submit" class="btn btn-sm btn-info" data-toggle="modal" data-target="#myModal">Update</button>
-                            <div id="myModal" class="modal fade" role="dialog">
+              <!-- <button type="submit" class="btn btn-sm btn-info" data-toggle="modal" data-target="#updateModal">Update</button>
+                <div id="updateModal" class="modal fade" role="dialog">
                   <div class="modal-dialog">
 
-                    <!-- Modal content-->
                     <div class="modal-content">
                       <div class="modal-header">
                         <button type="button" class="Done" data-dismiss="modal">&times;</button>
@@ -100,7 +99,7 @@
                     </div>
 
                   </div>
-                </div>
+                </div> -->
           </td>
         </tr>
       @endforeach

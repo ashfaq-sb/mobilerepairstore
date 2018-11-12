@@ -61,13 +61,7 @@
         </td>
           @endif
           <td>
-            <form action="{{ route('repair.destroy', $repair->id) }}" method="post">
               <a class="btn btn-sm btn-success" href="{{route('repair.show',$repair->id)}}">Show</a>
-              <a class="btn btn-sm btn-warning" href="{{route('repair.edit',$repair->id)}}">Edit</a>
-              @csrf
-              @method('DELETE')
-              <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-            </form>
           </td>
         </tr>
       @endforeach

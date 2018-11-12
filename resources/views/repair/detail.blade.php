@@ -34,7 +34,9 @@
                     <div class="modal-content">
                       <div class="modal-header">
                         <button type="button" class="Done" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Repair</h4>
+                        <h4 class="modal-title">{{ $repair->customer->fname }}  {{ $repair->customer->lname }}</h4>
+                        <h6> {{ $repair->customer->address }}</h6>
+                        <h6> {{ $repair->customer->phone }}</h6>
                       </div>
                       <form action="{{route('repair.update',$repair->id)}}" method="post">
                         @csrf
@@ -72,7 +74,9 @@
                     <div class="modal-content">
                       <div class="modal-header">
                         <button type="button" class="Done" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Repair</h4>
+                        <h4 class="modal-title">{{ $repair->customer->fname }}  {{ $repair->customer->lname }}</h4>
+                        <h6> {{ $repair->customer->address }}</h6>
+                        <h6> {{ $repair->customer->phone }}</h6>
                       </div>
                       <form action="{{route('repair.update',$repair->id)}}" method="post">
                         @csrf
