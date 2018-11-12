@@ -4,7 +4,6 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8">
-        <h3>Repairs</h3>
       </div>
       <div class="col-md-4">
         <a class="btn btn-sm btn-success" href="{{ route('repair.create') }}">Create New Repair</a>
@@ -21,25 +20,25 @@
 
     <div class="row-item">
       <div class="col-md-8">
-       <h1> Device Information</h1>
+       <h1>Repairs</h1>
       </div>
-      <div class="col-md-4">
-       
-      </div>
+      
     </div>
     
+<br>
 
+<br>
     <table class="table table-hover table-md">
       <tr>
         <th width = "50px"><b>No.</b></th>
-        <th >Brand Model</th>
+        <th>Brand Model</th>
         <th>Price</th>
         <th>IMEI</th>
         <th>Type</th>
         <th>Description</th>
         <th>Status</th>
         <th>Customer</th>
-        <th width = "180px">Action</th>s
+        <th width = "180px">Action</th>
       </tr>
 
       @foreach ($repairs as $repair)

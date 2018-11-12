@@ -9,14 +9,18 @@
     <title>Mobile Repair Shop</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+      <!-- ... -->
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+ 
+      <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -75,6 +79,20 @@
         <main class="py-4">
             @yield('content')
         </main>
-    </div>
+    </div> 
+
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+  <script type="text/javascript">
+            $( "#datepicker" ).datepicker({
+              format: "mm/dd/yy",
+              weekStart: 0,
+              calendarWeeks: true,
+              autoclose: true,
+              todayHighlight: true,
+              rtl: true,
+              orientation: "auto"
+              });
+        </script>
 </body>
 </html>

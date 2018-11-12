@@ -145,6 +145,8 @@
         <a href="{{action('RepairController@printReceipt', $repair->id)}}" class="btn btn-sm btn-info">Download Receipt
         </a>
         @else
+        <a href="{{action('RepairController@showReceipt', $repair->id)}}" class="btn btn-sm btn-info">View Receipt
+        </a>
         @endif
       </div>
     </div>

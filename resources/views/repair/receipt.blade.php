@@ -22,16 +22,17 @@
     
         <h2>Customer Information</h2>
           <p> 
-            <strong>Customer ID :</strong> {{$customer->id}}<br>
-            <strong>Name :</strong> {{$customer->fname}} {{$customer->lname}}<br>
-            <strong>Address :</strong> {{$customer->address}}<br>
-            <strong>Phone   :</strong> {{$customer->phone}}<br>
+            <strong>Customer ID :</strong> {{$repair->customer->id}}<br>
+            <strong>Name :</strong> {{$repair->customer->fname}} {{$repair->customer->lname}}<br>
+            <strong>Address :</strong> {{$repair->customer->address}}<br>
+            <strong>Phone   :</strong> {{$repair->customer->phone}}<br>
         </p>
 
 
    
         <h2>Service Information</h2>
         <p> 
+            <strong>Agent Name :</strong> {{Auth::user()->name}}<br> 
             <strong>Service ID :</strong> {{$repair->id}}<br>
             <strong>Device :</strong> {{$repair->brand}} {{$repair->model}}<br>
             <strong>Service Type :</strong> {{$repair->type}}<br>
@@ -42,9 +43,13 @@
             <strong>Service updated :</strong> {{$repair->updated_at}}<br>
 
         </p>
+<p>
+<strong>Legal Note!</strong><br>  
+Camden Mobile Service will not be responsible for any demage<br> caused to the above durring the service.<br>
+By Aquaring our service you are consenting to this note.
 
-<strong>Thank you for your business!</strong>  Payment is expected within 31 days; please process this invoice within that time. There will be a 5% interest charge per month on late invoices. 
             </p>
      </div>    
+     <a class="btn btn-sm btn-success" href="{{route('repair.show',$repair->id)}}">Back</a>
   </body>
 </html>

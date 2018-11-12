@@ -149,11 +149,23 @@ class RepairController extends Controller
     public function printReceipt($id)
     {
        $repair = Repair::find($id);
-       $customer = Customer::find($repair->customer_id);
-       $pdf = PDF::loadView('repair.receipt', compact('repair','customer'));
+       
+       $pdf = PDF::loadView('repair.receipt', compact('repair'));
       return $pdf->download('invoice.pdf');
 
       
 
     }
+    public function showReceipt($id)
+    {
+       $repair = Repair::find($id);
+       
+      
+      return view('repair.receipt', compact('repair'));
+
+      
+
+    }
+
+    
 }
