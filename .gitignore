@@ -14,3 +14,5 @@ yarn-error.log
 .phpunit.result.cache
 READNE.md
 /nbproject/private/
+.DS_Store
+database/.DS_Store

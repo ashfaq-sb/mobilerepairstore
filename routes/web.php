@@ -16,7 +16,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes(['register' => false]);
+Auth::routes();
 route::resource('repair','RepairController')->middleware('auth');
 
 route::resource('customer','CustomerController')->middleware('auth');

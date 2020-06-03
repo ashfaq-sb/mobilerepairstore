@@ -153,7 +153,7 @@ return [
                 'icon_class' => 'voyager-person',
             ],
             'Home' => [
-                'route'        => '/',
+                'route'        => '/home',
                 'icon_class'   => 'voyager-home',
                 'target_blank' => true,
             ],
